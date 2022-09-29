@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('author');
             $table->text('ingredients');
-            $table->id('user_id');
-            $table->timestamps('date');
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->timestamps();
         });
     }
 
