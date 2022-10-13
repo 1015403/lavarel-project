@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use \App\Http\Controllers\RecipeController;
 
-Route::get('/', [RecipeController::class, "showAll"]);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/users', function(){\App\Models\User::all();});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/a', [\App\Http\Controllers\Controller::class], 'index'
-);
+require __DIR__.'/auth.php';
