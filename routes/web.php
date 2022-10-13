@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use \App\Http\Controllers\RecipeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [RecipeController::class, "showAll"]);
+
+Route::get('/users', function(){\App\Models\User::all();});
+
+Route::get('/a', [\App\Http\Controllers\Controller::class], 'index'
+);
