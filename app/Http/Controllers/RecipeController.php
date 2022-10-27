@@ -11,4 +11,6 @@ class RecipeController extends Controller
         $Recipes = Recipe::with('user')->get();
         return view('home', ['Recipes'=>$Recipes]);
     }
+
+
 }
